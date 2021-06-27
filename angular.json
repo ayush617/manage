@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -25,12 +28,44 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/img"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/jquery.js",
+              "src/js/jquery-ui-1.10.4.min.js",
+              "src/js/jquery-ui-1.9.2.custom.min.js",
+              "src/js/jquery-1.8.3.min.js",
+              "src/js/bootstrap.min.js",
+              "src/js/jquery.scrollTo.min.js",
+              "src/js/jquery.nicescroll.js",
+              "src/assets/jquery-knob/js/jquery.knob.js",
+              "src/js/jquery.sparkline.js",
+              "src/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js",
+              "src/js/owl.carousel.js",
+              "src/js/fullcalendar.min.js",
+              "src/assets/fullcalendar/fullcalendar/fullcalendar.js",
+              "src/js/calendar-custom.js",
+              "src/js/jquery.rateit.min.js",
+              "src/js/jquery.customSelect.min.js",
+              "src/assets/chart-master/Chart.js",
+              "src/js/scripts.js",
+              "src/js/sparkline-chart.js",
+              "src/js/easy-pie-chart.js",
+              "src/js/jquery-jvectormap-1.2.2.min.js",
+              "src/js/jquery-jvectormap-world-mill-en.js",
+              "src/js/xcharts.min.js",
+              "src/js/jquery.autosize.min.js",
+              "src/js/jquery.placeholder.min.js",
+              "src/js/gdp-data.js",
+              "src/js/morris.min.js",
+              "src/js/sparklines.js",
+              "src/js/charts.js",
+              "src/js/jquery.slimscroll.min.js"
+            ]
           },
           "configurations": {
             "production": {
