@@ -8,7 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashComponent } from './dash/dash.component';
 import { LoginComponent } from './login/login.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { Auth } from './login/auth';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +19,20 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: "toast-top-right",
+      progressAnimation: "decreasing",
+      progressBar: true
+    })
   ],
-  providers: [CommonService],
+  providers: [CommonService,
+              Auth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
