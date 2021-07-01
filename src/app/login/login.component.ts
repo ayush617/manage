@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CommonService } from '../services/common.service';
 
@@ -10,12 +11,16 @@ import { CommonService } from '../services/common.service';
 export class LoginComponent implements OnInit {
 
   constructor(private common: CommonService,
-              private toast: ToastrService) { }
+              private toast: ToastrService,
+              private router: Router) { }
 
   username;
   password;
 
   ngOnInit() {
+    if(localStorage.getItem('isLogin')==='true'){
+      this.router.navigate(["/"])
+    }
   }
 
   submit(){

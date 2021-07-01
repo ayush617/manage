@@ -8,7 +8,7 @@ export class Auth implements CanActivate{
     constructor( private router: Router ) {}
 
     canActivate() {
-        if(localStorage.getItem('isLogin')){
+        if(localStorage.getItem('isLogin')==='true'){
             return true;
         }
         localStorage.clear();

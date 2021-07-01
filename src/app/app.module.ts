@@ -11,11 +11,19 @@ import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { Auth } from './login/auth';
+import { TopnavComponent } from './dash/components/topnav/topnav.component';
+import { SidenavComponent } from './dash/components/sidenav/sidenav.component';
+import { HomeComponent } from './dash/components/home/home.component';
+import { FooterComponent } from './dash/components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashComponent,
-    LoginComponent
+    LoginComponent,
+    TopnavComponent,
+    SidenavComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
