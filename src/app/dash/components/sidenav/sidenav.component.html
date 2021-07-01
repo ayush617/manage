@@ -3,38 +3,38 @@
   <div id="sidebar" class="nav-collapse ">
     <!-- sidebar menu start-->
     <ul class="sidebar-menu">
-      <li class="active">
-        <a class="" href="index.html">
+      <li [ngClass]="router.url=='/home'?'active':''">
+        <a class="" routerLink="/">
                       <i class="icon_house_alt"></i>
                       <span>Dashboard</span>
                   </a>
       </li>
-      <li>
-        <a class="" href="widgets.html">
-                      <i class="fa fa-building-o"></i>
-                      <span>Company</span>
-                  </a>
-      </li>
-      <li>
-        <a class="" href="widgets.html">
-                      <i class="fa fa-users"></i>
-                      <span>Users</span>
-                  </a>
-      </li>
-      <li>
-        <a class="" href="widgets.html">
+      <li [ngClass]="router.url=='/leads'?'active':''">
+        <a class="" routerLink="/leads">
                       <i class="fa fa-address-book-o"></i>
                       <span>Leads</span>
                   </a>
       </li>
-      <li>
-        <a class="" href="widgets.html">
+      <li [ngClass]="router.url=='/company'?'active':''">
+        <a class="" routerLink="/company">
+                      <i class="fa fa-building-o"></i>
+                      <span>Company</span>
+                  </a>
+      </li>
+      <li [ngClass]="router.url=='/users'?'active':''">
+        <a class="" routerLink="/users">
+                      <i class="fa fa-users"></i>
+                      <span>Users</span>
+                  </a>
+      </li>
+      <li [ngClass]="router.url=='/tasks'?'active':''">
+        <a class=""  routerLink="/tasks">
                       <i class="fa fa-tasks"></i>
                       <span>Tasks</span>
                   </a>
       </li>
-      <li>
-        <a class="" href="widgets.html">
+      <li [ngClass]="router.url=='/attendance'?'active':''">
+        <a class=""  routerLink="/attendance">
                       <i class="fa fa-calendar"></i>
                       <span>Attendance</span>
                   </a>

@@ -7,7 +7,13 @@
   <!--main content start-->
   <section id="main-content">  
 
-    <app-home></app-home>
+    <section class="wrapper">
+
+      <app-breadcrumbs [name]="router.url"></app-breadcrumbs>
+
+      <router-outlet></router-outlet>
+
+    </section>
 
     <app-footer></app-footer>
     

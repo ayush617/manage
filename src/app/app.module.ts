@@ -18,12 +18,12 @@ import { FooterComponent } from './dash/components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DashComponent,
+    // DashComponent,
     LoginComponent,
-    TopnavComponent,
-    SidenavComponent,
-    HomeComponent,
-    FooterComponent
+    // TopnavComponent,
+    // SidenavComponent,
+    // HomeComponent,
+    // FooterComponent
   ],
   imports: [
     BrowserModule,

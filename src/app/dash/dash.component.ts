@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonService } from '../services/common.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { CommonService } from '../services/common.service';
 })
 export class DashComponent implements OnInit {
 
-  constructor(private common: CommonService) { }
+  constructor(private common: CommonService,
+              private router: Router) { }
 
   ngOnInit() {
     this.common.check();

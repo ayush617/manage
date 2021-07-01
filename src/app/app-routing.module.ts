@@ -5,7 +5,7 @@ import { Auth } from './login/auth';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: DashComponent, canActivate: [Auth] },
+  { path: '', loadChildren: './dash/dash.module#DashModule', canActivate: [Auth] },
   { path: 'login', component: LoginComponent }
 ];
 
