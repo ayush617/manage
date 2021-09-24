@@ -1,0 +1,73 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    {{!isEdit?'Create Company':'Edit '+company}}
+  </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <table>
+    <tr>
+      <td>
+        ID :
+      </td>
+      <td>
+        <input [(ngModel)]="id" type="text" placeholder="Auto Generate">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        First Name :
+      </td>
+      <td>
+        <input [(ngModel)]="fname" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Last Name :
+      </td>
+      <td>
+        <input [(ngModel)]="lname" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Username :
+      </td>
+      <td>
+        <input [(ngModel)]="username" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Email :
+      </td>
+      <td>
+        <input [(ngModel)]="email" type="email">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Password :
+      </td>
+      <td>
+        <input [(ngModel)]="password" type="text" placeholder="Leave Blank Send Mail">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Company :
+      </td>
+      <td>
+        <input [(ngModel)]="company" type="text">
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="activeModal.close('')">Close</button>
+  <button *ngIf="!isEdit" type="button" class="btn btn-success" (click)="create()">Create</button>
+  <button *ngIf="isEdit" type="button" class="btn btn-warning" (click)="update()">Update</button>
+</div>

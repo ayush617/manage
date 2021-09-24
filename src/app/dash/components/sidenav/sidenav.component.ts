@@ -10,8 +10,11 @@ export class SidenavComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  roles;
+
   ngOnInit() {
-    console.log(this.router.url);
+    this.roles = JSON.parse(localStorage.getItem('roles'));
+    console.log(this.roles.admin)
   }
 
 }

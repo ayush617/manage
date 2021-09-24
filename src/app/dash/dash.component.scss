@@ -1,0 +1,21 @@
+.popup{
+    z-index: 99;
+    margin-right: 40%;
+}
+
+#main-content{
+    z-index: -1;
+}
+.black-backdrop {
+    background-color: black;
+  }
+
+.modal-content{
+    background-color: black !important;
+    margin-right: 40% !important;
+}
+
+.modal .fade .show .d-block .popup{
+    background-color: black !important;
+    margin-right: 40% !important;
+}

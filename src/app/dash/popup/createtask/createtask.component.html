@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    {{!isEdit?'Create Lead':'Edit '+ id}}
+  </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Task Id</mat-label>
+          <input  [(ngModel)]="id" placeholder="Auto Generate" matInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input  [(ngModel)]="name"  matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" *ngIf="isEdit">
+        <mat-slider
+          [(ngModel)]='progress'
+          thumbLabel
+          tickInterval="1"
+          step="5"
+          min="0"
+          max="100"
+          aria-label="units">
+        </mat-slider>
+      </td>
+    </tr>
+  </table>
+  <mat-form-field class="stretch-height txtarea-input">
+    <textarea [(ngModel)]='details' matInput rows="5" cols="30" placeholder="Description"></textarea>
+  </mat-form-field>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="activeModal.close('')">Close</button>
+  <button *ngIf="!isEdit" type="button" class="btn btn-success" (click)="create()">Create</button>
+  <button *ngIf="isEdit" type="button" class="btn btn-warning" (click)="update()">Update</button>
+</div>

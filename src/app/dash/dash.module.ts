@@ -11,8 +11,25 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
 import { LeadsComponent } from './components/leads/leads.component';
 import { UsersComponent } from './components/users/users.component';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { MatFormField, MatFormFieldModule, MatInputModule, MatOption, MatPaginatorModule, MatRippleModule, MatSelect, MatSlider, MatSlideToggle, MatTableModule } from '@angular/material';
+import { CreatecompanyComponent } from './popup/createcompany/createcompany.component';
+import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { CreateleadComponent } from './popup/createlead/createlead.component';
+import { CreateuserComponent } from './popup/createuser/createuser.component';
+import { CreatetaskComponent } from './popup/createtask/createtask.component';
+import { AttendanceComponent } from './components/attendance/attendance.component';
 @NgModule({
-  imports: [CommonModule,DashRoutingModule],
+  imports: [CommonModule,
+            FormsModule,
+            DashRoutingModule,
+            MatTableModule,
+            MatPaginatorModule,
+            NgbModalModule,
+            MatRippleModule,
+            MatFormFieldModule,
+            MatInputModule,
+          ],
   declarations: [DashComponent,
                 BreadcrumbsComponent,
                 TopnavComponent,
@@ -22,8 +39,19 @@ import { TasksComponent } from './components/tasks/tasks.component';
                 CompanyComponent,
                 LeadsComponent,
                 UsersComponent,
-                TasksComponent
+                TasksComponent,
+                AttendanceComponent,
+                CreatecompanyComponent,
+                CreateleadComponent,
+                CreateuserComponent,
+                CreatetaskComponent,
+                MatSlideToggle,
+                MatSlider
                ],
-  exports: [DashComponent]
+  exports: [DashComponent],
+  entryComponents: [CreatecompanyComponent,
+                    CreateleadComponent,
+                    CreateuserComponent,
+                    CreatetaskComponent]
 })
 export class DashModule { }

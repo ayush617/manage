@@ -1,29 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonService } from './services/common.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashComponent } from './dash/dash.component';
 import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { Auth } from './login/auth';
-import { TopnavComponent } from './dash/components/topnav/topnav.component';
-import { SidenavComponent } from './dash/components/sidenav/sidenav.component';
-import { HomeComponent } from './dash/components/home/home.component';
-import { FooterComponent } from './dash/components/footer/footer.component';
+import { MatRippleModule, MatSlideToggle } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
-    // DashComponent,
-    LoginComponent,
-    // TopnavComponent,
-    // SidenavComponent,
-    // HomeComponent,
-    // FooterComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +23,7 @@ import { FooterComponent } from './dash/components/footer/footer.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatRippleModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: "toast-top-right",

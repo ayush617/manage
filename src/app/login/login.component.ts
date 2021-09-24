@@ -34,7 +34,11 @@ export class LoginComponent implements OnInit {
       this.toast.error('Please enter password');
       return
     }
-    this.common.login(this.username,this.password);
+    if(this.router.url=='/admin'){
+      this.common.login(this.username,this.password,'admin');
+    }else{
+      this.common.login(this.username,this.password,'user');
+    }
   }
 
 }

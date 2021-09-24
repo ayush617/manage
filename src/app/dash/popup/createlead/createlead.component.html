@@ -1,0 +1,68 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    {{!isEdit?'Create Lead':'Edit '+ id}}
+  </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Lead Id</mat-label>
+          <input  [(ngModel)]="id" placeholder="Auto Generate" matInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input  [(ngModel)]="name"  matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input  [(ngModel)]="email" matInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input  [(ngModel)]="phoneno"  matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Details</mat-label>
+          <input  [(ngModel)]="details" matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" *ngIf="isEdit">
+        <mat-slider
+          [(ngModel)]='progress'
+          thumbLabel
+          tickInterval="1"
+          step="5"
+          min="0"
+          max="100"
+          aria-label="units">
+        </mat-slider>
+      </td>
+    </tr>
+  
+
+  </table>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="activeModal.close('')">Close</button>
+  <button *ngIf="!isEdit" type="button" class="btn btn-success" (click)="create()">Create</button>
+  <button *ngIf="isEdit" type="button" class="btn btn-warning" (click)="update()">Update</button>
+</div>

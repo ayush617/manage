@@ -1,3 +1,119 @@
-<p>
-  tasks works!
-</p>
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div class="info-box purple-bg">
+      <i class="fa fa-tasks"></i>
+      <div class="count">{{dataSource.data.length}}</div>
+      <div class="title">Total</div>
+    </div>
+    <!--/.info-box-->
+  </div>
+  <!--/.col-->
+
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div class="info-box blue-bg">
+      <i class="fa fa-plus-square-o"></i>
+      <div class="count">{{new}}</div>
+      <div class="title">New</div>
+    </div>
+    <!--/.info-box-->
+  </div>
+  <!--/.col-->
+
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div class="info-box yellow-bg">
+      <i class="fa fa-compass"></i>
+      <div class="count">{{progress}}</div>
+      <div class="title">In Progress</div>
+    </div>
+    <!--/.info-box-->
+  </div>
+  <!--/.col-->
+
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div class="info-box green-bg">
+      <i class="fa fa-thumbs-o-up"></i>
+      <div class="count">{{completed}}</div>
+      <div class="title">Completed</div>
+    </div>
+    <!--/.info-box-->
+  </div>
+  <!--/.col-->
+
+</div>
+<button (click)="create()" type="button" class="btn btn-primary float-right m-r-10"><i class="fa fa-plus"></i> Create</button>
+<br><br>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="sn">
+      <mat-header-cell class="col-sn" *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+      <mat-cell class="col-id" *matCellDef="let row;let i = index"> {{i+1}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="taskid">
+      <mat-header-cell class="col-id" *matHeaderCellDef mat-sort-header> Task Id </mat-header-cell>
+      <mat-cell class="col-id" *matCellDef="let row"> {{row.taskid}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+      <mat-cell *matCellDef="let row;let i = index;">
+        <select class="btn select-btn" [ngModel]="row.status" (change)="update('status',$event.target.value,row.id)"
+        [ngClass]="row.status==0?'status-Cancelled':row.status==1?'status-New':row.status==2?'status-Progress':row.status==3?'status-Noresponse':row.status==4?'status-Scheduled':row.status==5?'status-Completed':row.status==-1?'status-Deleted':''">
+          <option *ngIf="row.status=='-1'" value="-1">Deleted</option>
+          <option value="0">Cancelled</option>
+          <option value="1">New</option>
+          <option value="2">In Progress</option>
+          <option value="3">No Response</option>
+          <option value="4">Scheduled</option>
+          <option value="5">Completed</option>
+        </select>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="user">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Assigned To </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.assignto}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="progress">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+         <div class="progress">
+          <div class="progress-bar progress-bar-striped" [ngClass]="row.progress>90?'bg-success':row.progress>40?'bg-warning':'bg-danger'" role="progressbar" [ngStyle]="{'width':row.progress+'%'}" style="width: 10%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>&nbsp;
+        {{row.progress}}%
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="assignedto">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Assigned To </mat-header-cell>
+      <mat-cell *matCellDef="let row;let i = index;">
+        <select class="btn status-New" [ngModel]="row.assignto" (change)="update('assignedto',$event.target.value,row.id)">
+          <option [value]="null" disabled>Assign</option>
+          <option *ngFor="let item of users" [value]="item.id">{{item.fname}}</option>
+        </select>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+         <i class='fa fa-edit edit-btn' (click)="edit(row)"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+         <i class='fa fa-trash-o delete-btn' (click)="update('delete','-1',row.id)"></i> 
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

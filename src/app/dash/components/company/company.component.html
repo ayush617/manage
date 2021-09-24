@@ -1,3 +1,58 @@
-<p>
-  company works!
-</p>
+<button (click)="create()" type="button" class="btn btn-primary float-right m-r-10"><i class="fa fa-plus"></i> Create</button>
+<br><br>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell class="col-id" *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell class="col-id" *matCellDef="let row"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.fname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.username}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="company">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Company </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.company}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-slide-toggle 
+          [color]="id==row.id?'checked-error':'primary'" 
+          [ngModel]='row.status==1?true:false' 
+          (change)="update('status',$event.checked,row.id)" 
+          [disabled]="id==row.id">
+        </mat-slide-toggle>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let row;let i = index;">
+         <i class='fa fa-edit edit-btn' (click)='edit(row)' [ngClass]='id==row.id && id==1?"no-click":""'></i> &nbsp;&nbsp;&nbsp;&nbsp;
+         <i class='fa fa-trash-o delete-btn' (click)="deleteIt(row.id,i)"  [ngClass]='id==row.id && id==1?"no-click":""'></i> 
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

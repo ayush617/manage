@@ -9,37 +9,37 @@
                       <span>Dashboard</span>
                   </a>
       </li>
-      <li [ngClass]="router.url=='/leads'?'active':''">
+      <li *ngIf="roles.leads=='1'" [ngClass]="router.url=='/leads'?'active':''">
         <a class="" routerLink="/leads">
                       <i class="fa fa-address-book-o"></i>
                       <span>Leads</span>
                   </a>
       </li>
-      <li [ngClass]="router.url=='/company'?'active':''">
+      <li *ngIf="roles.admin=='1'" [ngClass]="router.url=='/company'?'active':''">
         <a class="" routerLink="/company">
                       <i class="fa fa-building-o"></i>
                       <span>Company</span>
                   </a>
       </li>
-      <li [ngClass]="router.url=='/users'?'active':''">
+      <li *ngIf="roles.users=='1'" [ngClass]="router.url=='/users'?'active':''">
         <a class="" routerLink="/users">
                       <i class="fa fa-users"></i>
                       <span>Users</span>
                   </a>
       </li>
-      <li [ngClass]="router.url=='/tasks'?'active':''">
+      <li *ngIf="roles.tasks=='1'" [ngClass]="router.url=='/tasks'?'active':''">
         <a class=""  routerLink="/tasks">
                       <i class="fa fa-tasks"></i>
                       <span>Tasks</span>
                   </a>
       </li>
-      <li [ngClass]="router.url=='/attendance'?'active':''">
+      <li *ngIf="roles.attendance=='1'" [ngClass]="router.url=='/attendance'?'active':''">
         <a class=""  routerLink="/attendance">
                       <i class="fa fa-calendar"></i>
                       <span>Attendance</span>
                   </a>
       </li>
-      <li class="sub-menu">
+      <li *ngIf="roles.designer=='1'" class="sub-menu">
         <a href="javascript:;" class="">
                       <i class="icon_document_alt"></i>
                       <span>Forms</span>
@@ -50,7 +50,7 @@
           <li><a class="" href="form_validation.html">Form Validation</a></li>
         </ul>
       </li>
-      <li class="sub-menu">
+      <li *ngIf="roles.designer=='1'" class="sub-menu">
         <a href="javascript:;" class="">
                       <i class="icon_desktop"></i>
                       <span>UI Fitures</span>
@@ -62,13 +62,13 @@
           <li><a class="" href="grids.html">Grids</a></li>
         </ul>
       </li>
-      <li>
+      <li *ngIf="roles.designer=='1'">
         <a class="" href="widgets.html">
                       <i class="icon_genius"></i>
                       <span>Widgets</span>
                   </a>
       </li>
-      <li>
+      <li *ngIf="roles.designer=='1'">
         <a class="" href="chart-chartjs.html">
                       <i class="icon_piechart"></i>
                       <span>Charts</span>
@@ -77,7 +77,7 @@
 
       </li>
 
-      <li class="sub-menu">
+      <li *ngIf="roles.designer=='1'" class="sub-menu">
         <a href="javascript:;" class="">
                       <i class="icon_table"></i>
                       <span>Tables</span>
@@ -88,7 +88,7 @@
         </ul>
       </li>
 
-      <li class="sub-menu">
+      <li *ngIf="roles.designer=='1'" class="sub-menu">
         <a href="javascript:;" class="">
                       <i class="icon_documents_alt"></i>
                       <span>Pages</span>

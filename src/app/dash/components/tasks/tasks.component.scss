@@ -1,0 +1,81 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 25px;
+  }
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.mat-column-sn {
+  flex: 0 0 5%;
+}
+.mat-column-leadid {
+  flex: 0 0 10%;
+}
+.mat-column-name {
+  flex: 0 0 12%;
+}
+.mat-column-phoneno {
+  flex: 0 0 12%;
+}
+.mat-column-email {
+  flex: 0 0 20%;
+}
+.mat-column-progress {
+  flex: 0 0 16%;
+}
+.mat-column-status {
+  flex: 0 0 15%;
+}
+.edit-btn{
+    color: #4285F4;
+    font-size: x-large;
+    cursor: pointer;
+}
+.delete-btn{
+  color: #DB4437;
+  font-size: x-large;
+  cursor: pointer;
+}
+.progress{
+  margin-bottom: 0px;
+  width: 100px;
+}
+.mat-header-cell{
+  text-align: center;
+}
+
+.status-Cancelled{
+  background-color: #DB4437;
+  color: white;
+}
+.status-New{
+  background-color: lightgray;
+  color: #1a2732;
+}
+.status-Progress{
+  background-color: #007aff;
+  color: white;
+}
+.status-Noresponse{
+  background-color: #ffc107;
+  color: white;
+}
+.status-Scheduled{
+  background-color: #d1b993;
+  color: white;
+}
+.status-Completed{
+  background-color: #28a745;
+  color: white;
+}
+.status-Deleted{
+  background-color: #1a2732;
+  color: white;
+}
+.select-btn{
+  width: 75%;
+}
